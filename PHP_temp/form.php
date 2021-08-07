@@ -27,7 +27,11 @@
     //print_R($_COOKIE);
     //echo $_COOKIE['name'];
 
-
+    // file upload  $_FILES is a superglobal that is associative so two params
+    echo $name=$_FILES["file"]['name']."<br>";//shows file name
+    echo $type=$_FILES["file"]['type']."<br>";
+    echo $temp_loc=$_FILES["file"]['tmp_name']."<br>";
+    echo $error=$_FILES["file"]['error']."<br>"; //returns 0 if no error
 ?>
 <!--<form action ="form.php" method="post">
     <input type="text" name="Name">
@@ -39,6 +43,10 @@
     <input type="text" name="Age">
     <button type="submit">SUBMIT</button>
 </form>    in the get method the changes can be seen in the URL -->  
-    
+<form action="form.php" method="post" 
+    enctype="multipart/form-data"> <!--enctype specified how the data must be encoded, for upload always use post -->
+    <input type="file" name="file">
+    <button type="submit">SUBMIT</button>
+</form> 
 </body>
 </html>
