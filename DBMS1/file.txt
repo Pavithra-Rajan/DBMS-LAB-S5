@@ -1,0 +1,2 @@
+Student1 B190576CS 2001-05-22 area 1234 9874734242 example1@gmail.com 9 Writing Y None 
+Student2 B190632CS 2002-05-13 area 4567 6868687960 example2@gmail.com 9 Art Y None 
