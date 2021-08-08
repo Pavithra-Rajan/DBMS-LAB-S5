@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Student CV</title>
 </head>
 <body>
 
     <?php
         $name=$_POST['name'];
-        $roll_number=$_POST['roll'];
+        $roll_number=strtoupper($_POST['roll']);
         $dob=$_POST['dob'];
         $address=$_POST['address'];
         $mob_no=$_POST['mob'];
@@ -31,7 +31,7 @@
         //echo $dob;
         $date=explode("-",$dob);
         $year=$date[0];
-        echo $year;
+        //echo $year;
         $year=(int)$year;
         if ($year>1995 && $year<2004)
         {
@@ -44,7 +44,7 @@
         
 
         if(empty($name) || empty($roll_number) || empty($dob) || empty($address) || empty($mob_no) ||
-        empty($email_id)|| empty($CGPA) || empty($hobbies) || empty($hosteller) || empty($ref))
+        empty($email_id) || empty($hobbies) || empty($hosteller) || empty($ref))
         {
                 echo "Some field is missing.";
                 die();
@@ -81,7 +81,7 @@
                     if (isset($_POST['submit']))
                         {
                             $myFile=fopen("file.txt","a");
-                            $txt=$_POST['name']." ".$_POST['roll']." ". $_POST['dob']." ". $_POST['address']." ". $_POST['mob']." ". $_POST['email']." ". 
+                            $txt=$_POST['name']." ".strtoupper($_POST['roll'])." ". $_POST['dob']." ". $_POST['address']." ". $_POST['mob']." ". $_POST['email']." ". 
                             $_POST['cgpa']." ". $_POST['hobbies']." ". $_POST['hosteller']." ". $_POST['ref']." "."\n";
                             fwrite($myFile,$txt);
                             fclose($myFile);
